@@ -22,7 +22,7 @@ public class PilaUnica {
             if(pilaAux.getTop() > numero){
                 pilaAux.add(numero);
                 pilaUnica.remove();
-            }//Falta terminar
+            }//Falta terminar aa
         }
 
         return stack;
