@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.Random;
 
 
-
 public class Set implements ISet {
 
     private final int[] array;
@@ -16,6 +15,11 @@ public class Set implements ISet {
     public Set() {
         this.array = new int[10000];
         this.count = 0;
+    }
+
+    private Set(Builder builder) {//Usando patron builder
+        this.array = builder.array;
+        this.count = builder.count;
     }
 
     @Override
@@ -28,6 +32,24 @@ public class Set implements ISet {
 
         this.array[this.count] = a;
         this.count++;
+    }
+
+    //Con builder
+    public void addBuilder(int a) {
+        if (contains(a)) {
+            return;
+        }
+
+        int[] newArray = Arrays.copyOf(array, count + 1);
+        newArray[count] = a;
+
+        Set.Builder builder = new Set.Builder();
+        builder.array(newArray);
+        builder.count(count + 1);
+
+        Set newSet = builder.build();
+        array = newSet.array;
+        count = newSet.count;
     }
 
     @Override
@@ -77,5 +99,29 @@ public class Set implements ISet {
             }
         }
         return true;
+    }
+    public static class Builder {
+        private int[] array;
+        private int count;
+
+        public Builder() {
+            this.array = new int[10000];
+            this.count = 0;
+        }
+
+        public Builder arraySize(int size) {
+            this.array = new int[size];
+            return this;
+        }
+
+        public Builder addElement(int element) {
+            this.array[this.count] = element;
+            this.count++;
+            return this;
+        }
+
+        public Set build() {
+            return new Set(this);
+        }
     }
 }

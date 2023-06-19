@@ -52,4 +52,6 @@ public class DynamicStackLimited implements IStack {
         }
         return this.first.getValue();
     }
+
+
 }
