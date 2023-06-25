@@ -24,9 +24,9 @@ public class Ejercicio7 {
             int vertice = stack.getTop();
             stack.remove();
             if(!visitados[vertice]){
-                Set componente = new Set();
-                busquedaEnProfundidadTraspuesta(vertice, visitados,componente, traspuesta);
-                res.add(componente);
+                Set subgrafo = new Set();
+                busquedaEnProfundidadTraspuesta(vertice, visitados,subgrafo, traspuesta);
+                res.add(subgrafo);
             }
         }
         return res;
@@ -41,12 +41,12 @@ public class Ejercicio7 {
         stack.add(vertice);
     }
 
-    private static void busquedaEnProfundidadTraspuesta(int vertice, boolean[] visitados, Set componente, int[][] matriz){
+    private static void busquedaEnProfundidadTraspuesta(int vertice, boolean[] visitados, Set subgrafo, int[][] matriz){
         visitados[vertice] = true;
-        componente.add(vertice);
+        subgrafo.add(vertice);
         for(int vecino : matriz[vertice]){
             if(!visitados[vecino]){
-                busquedaEnProfundidadTraspuesta(vecino, visitados, componente, matriz);
+                busquedaEnProfundidadTraspuesta(vecino, visitados, subgrafo, matriz);
             }
         }
     }
