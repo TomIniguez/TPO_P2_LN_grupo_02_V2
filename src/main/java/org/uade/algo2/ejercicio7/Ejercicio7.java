@@ -14,7 +14,7 @@ public class Ejercicio7 {
         boolean[] visitados = new boolean[cantNodos];
         for (int i = 0; i < cantNodos; i++) {
             if(!visitados[i]){
-                dfs(i, visitados, stack, matriz);
+                busquedaEnProfundidad(i, visitados, stack, matriz);
             }
         }
         int[][] traspuesta = trasponerMatriz(matriz);
@@ -25,28 +25,28 @@ public class Ejercicio7 {
             stack.remove();
             if(!visitados[vertice]){
                 Set componente = new Set();
-                dfsTraspuesta(vertice, visitados,componente, traspuesta);
+                busquedaEnProfundidadTraspuesta(vertice, visitados,componente, traspuesta);
                 res.add(componente);
             }
         }
         return res;
     }
     
-    private static void dfs(int vertice, boolean[] visitados, Stack stack, int[][]matriz){
+    private static void busquedaEnProfundidad(int vertice, boolean[] visitados, Stack stack, int[][]matriz){
         visitados[vertice] = true;
         for (int vecino: matriz[vertice]) {
             if(!visitados[vecino])
-                dfs(vecino, visitados, stack, matriz);
+                busquedaEnProfundidad(vecino, visitados, stack, matriz);
         }
         stack.add(vertice);
     }
 
-    private static void dfsTraspuesta(int vertice, boolean[] visitados, Set componente, int[][] matriz){
+    private static void busquedaEnProfundidadTraspuesta(int vertice, boolean[] visitados, Set componente, int[][] matriz){
         visitados[vertice] = true;
         componente.add(vertice);
         for(int vecino : matriz[vertice]){
             if(!visitados[vecino]){
-                dfsTraspuesta(vecino, visitados, componente, matriz);
+                busquedaEnProfundidadTraspuesta(vecino, visitados, componente, matriz);
             }
         }
     }
@@ -56,7 +56,7 @@ public class Ejercicio7 {
     public static int[][] trasponerMatriz(int [][] matriz){
         int[][] res = new int[matriz.length][matriz.length];
         for (int i = 0; i < matriz.length; i++)
-            for (int j = 0; j < matriz[0].length; j++)
+            for (int j = 0; j < matriz.length; j++)
                 res[j][i] = matriz[i][j];
         return res;
     }
