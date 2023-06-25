@@ -3,7 +3,7 @@ package org.adt.core.adt.implementation.TPO;
 import org.adt.core.adt.definition.IStack;
 import org.adt.core.adt.implementation.dynamic.node.Node;
 
-//Ejercicio 6 > 1) Pila dinámica con capacidad limitada. Debe recibir la capacidad máxima por constructor.
+//Ejercicio 7 > 1) Pila dinámica con capacidad limitada. Debe recibir la capacidad máxima por constructor.
 
 public class DynamicStackLimited implements IStack {
 
