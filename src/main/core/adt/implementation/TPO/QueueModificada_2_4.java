@@ -1,3 +1,5 @@
+package org.adt.core.adt.implementation.TPO;
+
 import java.util.Arrays;
 public class Queue implements IQueue {
 
