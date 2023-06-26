@@ -1,6 +1,9 @@
 package coreVer2.adt.implementation.TPO;
 
-public class Stack implements IStack {
+import coreVer2.adt.definition.IStack;
+import coreVer2.adt.implementation.dynamic.node.Node;
+
+public class Stack5_1 implements IStack {
 
     private Node first;
 
@@ -33,8 +36,8 @@ public class Stack implements IStack {
     }
 
     public Stack getUniqueSortedStack() { //Complejidad total: O(n^2)
-        Stack originalStack = new Stack();
-        Stack newStack = new Stack();
+        Stack5_1 originalStack = new Stack5_1();
+        Stack5_1 newStack = new Stack5_1();
 
         // Copiar elementos de la pila original a una pila auxiliar   Complejidad: O(n)
         while (!isEmpty()) {
@@ -64,8 +67,8 @@ public class Stack implements IStack {
     }
 
     // Método para ordenar una pila en orden ascendente utilizando otro Stack auxiliar Complejidad:O(n^2)
-    private Stack sortStack(Stack stack) {
-        Stack sortedStack = new Stack();
+    private Stack5_1 sortStack(Stack5_1 stack) {
+        Stack5_1 sortedStack = new Stack5_1();
 
         while (!stack.isEmpty()) {
             int temp = stack.getTop();
@@ -83,8 +86,8 @@ public class Stack implements IStack {
     }
 
     // Método para invertir el orden de una pila utilizando otro Stack auxiliar Complejidad: O(n)
-    private Stack reverseStack(Stack stack) {
-        Stack reversedStack = new Stack();
+    private Stack5_1 reverseStack(Stack5_1 stack) {
+        Stack5_1 reversedStack = new Stack5_1();
 
         while (!stack.isEmpty()) {
             reversedStack.add(stack.getTop());

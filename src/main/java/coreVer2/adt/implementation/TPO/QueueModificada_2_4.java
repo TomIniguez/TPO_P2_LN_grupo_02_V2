@@ -1,5 +1,7 @@
 package coreVer2.adt.implementation.TPO;
 
+import coreVer2.adt.definition.IQueue;
+
 import java.util.Arrays;
 public class Queue implements IQueue {
 
